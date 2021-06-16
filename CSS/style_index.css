@@ -1,0 +1,368 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+/* Viewport */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 100px;
+    z-index: 10;
+    transition: 0.6s;
+}
+
+header .logo{
+    position: relative;
+    font-weight: 700; 
+    color: yellow;
+    text-decoration: none;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.9s;
+}
+
+header #toggle{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    margin-left: 100%;
+}
+
+header > #toggle::before{
+    content: '';
+    position: absolute;
+    top: 7px;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+
+    /* Top = arriba
+        left = izq
+        right = der
+        bottom=abajo */
+}
+
+
+header > #toggle::after{
+    content: '';
+    position: absolute;
+    bottom: 7px;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    /* Top = arriba
+        left = izq
+        right = der
+        bottom=abajo */
+}
+
+.banner.active header #toggle::before{
+    top: 50%;
+    left: 50%;
+    /* trasnformaciones
+    permiten manipular y transformar elementos */
+    transform: translate(-50%,-50%) rotate(45deg);
+}
+
+.banner.active header #toggle::after{
+    top: 50%;
+    left: 50%;
+    /* trasnformaciones
+    permiten manipular y transformar elementos */
+    transform: translate(-50%,-50%) rotate(-45deg);
+}
+
+.banner{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background: url(../content/images/bg.jpg);
+    /* /* background-size: cover; */
+    display: flex;
+    align-items: center;
+    transition: 0.5s;
+}
+
+.banner .active{
+    transform: translateY(-400px);
+}
+
+#navigation{
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100vh;
+    background: #05f7ff;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    transition: 0.5s;
+}
+
+#navigation.active{
+    right: 0;
+}
+
+#navigation ul li a{
+    color: #272727;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 2em;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.content {
+    max-width: 600px;
+    margin-left: 40px;
+}
+
+.content h2{
+    color: white;
+    font-size: 2.5em;
+
+}
+.content p{
+    font-size: 1.2em;
+    color: white;
+    font-weight: 300;
+}
+
+.content a{
+    position: relative;
+    display: inline-block;
+    margin-top: 20px;
+    background: white;
+    color: black;
+    padding: 10px 30px;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: 500;    
+}
+
+.redes{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    right: 100px;
+}
+
+.redes li{
+    list-style: none;
+}
+
+.redes li a{
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 50px;
+    height: 50px;
+    text-decoration: none;
+    border: 1px solid #fff;
+    margin: 10px;
+}
+
+.redes li a:hover{
+    background-color: #fff;
+}
+
+.redes li a img:hover{
+    filter: invert(0);
+}
+
+.redes li a img{
+    max-width: 20px;
+    color: #000; 
+    filter: invert(1);   
+}
+
+
+
+/* SCROLL */
+
+.go-top-container{
+    position: fixed;
+    bottom: 4rem;
+    right: 1rem;
+    width: 6.6rem;
+    height: 6.6rem;
+    z-index: -1;
+    margin-left: 90%;
+}
+
+.go-top-button{
+    width: 0rem;
+    height: 0rem;
+    background: #00d6dd;
+    border-radius: 100%;
+    cursor: pointer;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    transition: .2s;
+}
+
+.go-top-button i{
+    position: absolute;
+    font-size: 1.7rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    color: #272727;
+    transition: .2s;
+}
+
+.show{
+    z-index: 10;
+}
+
+.show .go-top-button{
+    animation: popup .3s ease-in-out; 
+    width: 6.6rem;
+    height: 6.6rem;
+    z-index: 11;
+}
+
+.show i {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+
+@keyframes popup{
+    0%{
+        width: 0rem;
+        height: 0rem;
+    }
+    50%{
+        width: 8rem;
+        height: 8rem;
+    }
+    100%{
+        width: 6.6rem;
+        height: 6.6rem;
+    }
+}
+
+
+/* SCROLL END*/
+
+
+
+
+/* FOOTER */
+
+.footer{
+    background: #303036;
+    color: #d3d3d3;
+    height: 400px;
+    position: relative;
+}
+
+.footer .footer_content{
+    border: 1px solid black;
+    height: 350px;
+    display: flex;
+}
+
+.footer .footer_content .footer_section{
+    flex: 1;
+    padding: 25px;
+    
+}
+
+.footer .footer_content h1,
+.footer .footer_content h2{
+    color: white;
+}
+
+.footer .footer_content .about h1 span{
+    color: #05f7ff;
+}
+
+.footer .footer_content .about .contact span{
+    display: block;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.footer .footer_content .about .socials a{
+    border: 1px solid gray;
+    width: 45px;
+    height: 41px;
+    padding-top: 5px;
+    margin-right: 5px;
+    text-align: center;
+    display: inline-block;
+    font-size: 1.3em;
+    border-radius: 5px;
+    transition: all .3s;
+}
+
+.footer .footer_content .about .socials a:hover{
+    border: 1px solid white;
+    color: white;
+    transition: all .3s;
+}
+
+.footer .footer_content .links ul a{
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: white;
+    /* list-style: none; */
+    transition: all .3s;
+    text-decoration: none;
+}
+
+.footer .footer_content .links ul a:hover{
+    color: white;
+    margin-left: 15px;
+    transition: all .3s;
+}
+
+.footer .footer_content .contact-form .contact-input{
+    background: #272727;
+    color: #bebdbd;
+    margin-bottom: 10px;
+    line-height: 1.5rem;
+    padding: 1.3rem 3.5rem;
+
+}
+
+#btn_send{
+    background: #05f7ff;
+    color:#272727;
+}
+
+.footer .footer_bottom{
+    background: #343a40;
+    color: #686868;
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    padding-top: 20px;
+}
+
+.socials a{
+    color: white;
+}
+
+/* FOOTER END */
+
+
+
+
+
