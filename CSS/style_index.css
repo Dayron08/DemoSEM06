@@ -202,7 +202,7 @@ header > #toggle::after{
 .go-top-button{
     width: 0rem;
     height: 0rem;
-    background: #00d6dd;
+    background: red;
     border-radius: 100%;
     cursor: pointer;
     top: 50%;
